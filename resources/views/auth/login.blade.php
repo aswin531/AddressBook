@@ -1,8 +1,8 @@
-@extends('layout.master')
+@extends('layouts.master')
 @section('content')
    <h1>Login</h1>
    <div class="row">
-     <div class="col-sm-6 offset-sm-3">
+     <div class="col-sm-6 offset-sm-3"> 
         <form action="{{ route('authenticate') }}" method="POST">
             <div class="form-group">
                 <label for="email" class="form-label">Email</label>

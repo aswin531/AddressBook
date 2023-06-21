@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AddressController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,4 +20,8 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::post('authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
 Route::get('register', [AuthController::class, 'register'])->name('register');
-Route::post('create_user', [AuthController::class, 'createUser'])->name('authenticate');
+// Route::post('create_user', [AuthController::class, 'createUser'])->name('authenticate');
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('address', [AddressController::class,'index'])->name('contacts');
+});
