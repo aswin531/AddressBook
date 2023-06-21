@@ -25,3 +25,4 @@ Route::get('register', [AuthController::class, 'register'])->name('register');
 Route::group(['middleware' => 'auth'], function() {
     Route::get('address', [AddressController::class,'index'])->name('contacts');
 });
+
